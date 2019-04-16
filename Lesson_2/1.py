@@ -9,3 +9,30 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+
+# for i in range(150):
+#     print (i,'', chr(i))
+def mat(a, b, zn):
+    if zn==43:
+        print('Сумма равна ', (a+b))
+    if zn==45:
+        print('Разность равна ', (a-b))
+    if zn==42:
+        print('Произведение равно ', (a*b))
+    if zn==47:
+        print('Деление равно ', (a/b))
+zn=0
+while zn!=48:
+    a = int(input('введите первое число: '))
+    b = int(input('введите второе число: '))
+    while True:
+        zn = ord(input('Введите знак операции + - * / '))
+        if zn != 42 and zn != 43 and zn != 45 and zn != 47 and zn != 48:
+            zn = ord(input('Введите знак операции + - * / '))
+        else:
+            break
+    if zn==48:
+        print('Программа прервана')
+        break
+    mat(a,b,zn)
