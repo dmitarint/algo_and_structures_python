@@ -8,3 +8,20 @@
 то вводятся эти символы. Программа должна вывести на экран любой
 символ алфавита от 'a' до 'f' включительно.
 """
+
+from random import random
+
+#
+m1=int(input(''))
+m2=int(input(''))
+print(int(random()*(m2-m1+1)+m1))
+
+m1=float(input(''))
+m2=float(input(''))
+n=float(random()*(m2-m1+1)+m1)
+print('%.4f'%n)
+
+m1 = ord(input(''))
+m2 = ord(input(''))
+n = int(random() * (m2 - m1 + 1) + m1)
+print(chr(n))
