@@ -4,3 +4,26 @@
 записывать ее в последнюю ячейку строки.
 В конце следует вывести полученную матрицу.
 """
+import random
+#Создаем матрицу 5х4
+a=[]
+for i in range(4):
+    a.append([])
+    for j in range(5):
+        a[i].append(int())
+print(a)
+
+#Заполняем элементы матрицы с 1 по 4-й индекс
+#в пятый элемент записываем сумму 4-х элементов
+for i in range(4):
+    for j in range(5):
+        if j==4:
+            a[i][j] = sum(a[i][:j])
+        else:
+            # a[i][j]=int(input('Введите число: ')))
+            a[i][j]=int(random.randint(0,100))
+print(a)
+
+# for i in range(4):
+#  a[i][4]=sum(a[i][:4])
+# print(a)
