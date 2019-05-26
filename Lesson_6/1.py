@@ -7,3 +7,87 @@
 комментариев к коду. Также укажите в комментариях версию Python
 и разрядность вашей ОС.
 """
+#Версия Питон 3.7.2
+#Разрадность системы 64
+
+from pympler import asizeof
+
+# Первый вариант. Решето Эратосфена
+#Размер памчти равен 8
+def resch():
+    n=40 #номер по счету простого числа
+    a=[0]*n**2
+    for i in range(n**2):
+        a[i]=i
+    a[1]=0
+    m=2
+    while m<n:
+        if a[m]!=0:
+            j=m*2
+            while j<n:
+                a[j]=0
+                j=j+m
+        m+=1
+    # print (a)
+    b=[]
+    for i in a:
+        if a[i]!=0:
+            b.append(a[i])
+    del a
+    # print (len(b))
+    # print(b[n])
+
+print(asizeof.asizeof(resch()))
+
+# Второй вариант.
+# Размер памяти равен 8. Также как в решето эратосфена
+
+# Задание: Найти максимальный элемент среди минимальных элементов столбцов матрицы.
+import random
+def matr():
+    #Создаем матрицу
+    line=9
+    colmn=9
+    a=[]
+    b=[0]*line
+    for i in range(colmn):
+        a.append([])
+        for j in range(line):
+            a[i].append(random.randint(0,100))
+    # Печатаем матрицу
+    for i in range(colmn):
+        print(a[i])
+
+    # Ищем минимальный элемент в столбце
+    for i in range(line):
+        min=100
+        for j in range(colmn):
+            if a[j][i]<min:
+                min=a[j][i]
+            b[i]=min
+    # print ('Min list ', b)
+
+    #Ищем максимальный элемент среди минимальных элементов столбцов матрицы
+    max=0
+    for i in b:
+        if i>max:
+            max=i
+    # print('Max ', max)
+
+print(asizeof.asizeof(matr()))
+
+# третий вариант, рекурсия.
+# Размер памяти равен 40, что является наибольшим значением. Это связано с применением рекурсии
+import random
+def obr(n,ln):
+    s=''
+    m=0
+    if m==ln: #базовое условие
+        return s
+    else:
+        m+=1
+        return s+n[ln-m]+obr(n,ln-m)
+
+n = '797966959595494'
+ln=len(n)
+print(asizeof.asizeof(obr(n,ln)))
